@@ -28,7 +28,11 @@ $(document).ready(function ()
 
     });
 
-    $('#clear').click(function ()
+    $("#btnStop").click(function(){
+        timer.stop(); 
+    });
+
+    $('#btnRefresh').click(function ()
     {
         location.reload();
     });
@@ -49,9 +53,10 @@ function getRide(NoteObject, val, map)
             if (json.name === val)
             {
                 var map = createMap(json, NoteObject, val);
+                getNotes(NoteObject, val);
                 getLine(NoteObject, map, val);
                 getLocation(NoteObject, map, val);
-                getNotes(NoteObject, val);
+                
             }
         });
     }); 
