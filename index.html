@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE" />
+	<link rel="stylesheet" href="css/leaflet.css" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap-responsive.css" rel="stylesheet"/>
+    <link href="css/leaflet.usermarker.css" rel="stylesheet" />
+    <link href="css/Leaflet.Elevation-0.0.1.css" rel="stylesheet"/>
+    <link href="css/L.Control.Locate.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">  
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-inner navbar-fixed">
+            <div class="container" >
+                <a class="brand" href="#" style="font-size:105%">Maps of Love</a>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">  
+        <div class="row-fluid">
+            <div class="span3" >
+                <!--<h2><b>Ride</b></h2>-->
+                    <select id="ride" disabled>
+                        <option value="Offroad_Day1">Offroad 1</option>
+                        <option value="Offroad_Day2">Offroad 2</option>
+                        <option value="Offroad_Day3">Offroad 3</option>
+                        <option value="Offroad_Day4">Offroad 4</option>
+                        <option value="Offroad_Day5">Offroad 5</option>
+                    </select>
+                    <br>
+                    <button class="btn btn-success" id="Stop">Refresh</button> 
+                    <button class="btn btn-danger" id="Stop">Stop</button>
+                <div class="counter" id="counter"><br></div>
+                <!--<h2>Notes</h2>-->
+                <div id="notes" style="overflow: auto"></div>
+            </div>
+            <div id="map" class="span8"></div>
+        </div>
+    </div>
+    <!--Scripts-->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/parse-1.2.12.min.js"></script>
+    <script src="main.js"></script>
+    <script src="maps.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.csv-0.7.js"></script>
+    <script src="leaflet.js"></script>
+    <script src="js/togeojson.js"></script>
+    <script src="js/Leaflet.Elevation-0.0.1.min.js"></script>
+    <script src="js/d3.js"></script>
+    <script src="leaflet.usermarker.js"></script>
+    <script src="L.Control.Locate.js"></script>
+    <script src="js/gpx.js"></script>
+    <script src="js/jquery.timer.js"></script>
+</body>
+</html>
