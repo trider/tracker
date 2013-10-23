@@ -5,8 +5,7 @@ $(document).ready(function ()
     var NoteObject = Parse.Object.extend("NoteObject");
 
     setMapSize();
-    var count = 15;
-    var interval = 30;
+    var count = 30;
     var val = $('#ride').val();
     var map = getRide(NoteObject, val, map);
 
@@ -14,9 +13,11 @@ $(document).ready(function ()
     {
         count--;
         $('#counter').html('<p><b>Refresh in:</b> ' + count + ' seconds</p>');
-        if (count< 1)
+        if (count < 1)
         {
+            
             location.reload();
+
         }
     });
     timer.set({ time: 1000, autostart: true });
@@ -28,8 +29,9 @@ $(document).ready(function ()
 
     });
 
-    $("#btnStop").click(function(){
-        timer.stop(); 
+    $("#btnStop").click(function ()
+    {
+        timer.stop();
     });
 
     $('#btnRefresh').click(function ()
@@ -53,9 +55,9 @@ function getRide(NoteObject, val, map)
             if (json.name === val)
             {
                 var map = createMap(json, NoteObject, val);
-                getNotes(NoteObject, val);
-                getLine(NoteObject, map, val);
+                //getNotes(NoteObject, val);
                 getLocation(NoteObject, map, val);
+                //getLine(NoteObject, map, val);
                 
             }
         });
@@ -102,7 +104,7 @@ function getNotes(NoteObject, val) {
 
   function getLocation(NoteObject, map, val) {
 
-   
+    var marker;
     var query = new Parse.Query(NoteObject);
     query.equalTo("title", val);
     query.limit(1);
@@ -118,8 +120,10 @@ function getNotes(NoteObject, val) {
                 console.log(point.toString());
 
                  if (!marker)
-                        var marker = L.userMarker(point, { pulsing: true, accuracy: 500, smallIcon: true
+                        marker = L.userMarker(point, { pulsing: true, accuracy: 1000, smallIcon: true
                  }).addTo(map);
+
+                 map.panTo(point);   
 
             }
 

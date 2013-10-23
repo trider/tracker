@@ -5,7 +5,7 @@ function createMap(json)
     var map = new L.map('map', 
     {
         center: [json.lng, json.lat],
-        zoom: 13
+        zoom: 11
     });
 
     var osmTile = "http://{s}.tile.cloudmade.com/ba8af3a046054cefaed65ea8ca002dc1/101270/256/{z}/{x}/{y}.png";
@@ -13,9 +13,7 @@ function createMap(json)
                         '<a href="http://creativecommons.org/licenses/by-sa/2.0/"></a>CC-BY-SA</a>, Imagery Â© <a href="http://cloudmade.com">CloudMade</a>'; 
     var osmLayer = new L.TileLayer(osmTile, { maxZoom: 17, attribution: osmCopyright });  
     map.addLayer(osmLayer);
-    //addLocateControl(map);
     showElevation(map, json.gpx_file);
-    //$.get(json.html_file, function (data){$("#txt").html(data)});
     return map;
 }
 
@@ -58,7 +56,7 @@ function showElevation(map, path)
     var el = L.control.elevation({
         position: "topright",
         theme: "lime-theme", 
-        width: 125,
+        width: 250,
         height: 100,
         margins: { top: 10, right: 10, bottom: 20, left: 10 },
         useHeightIndicator: true, 
